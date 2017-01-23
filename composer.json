@@ -1,0 +1,15 @@
+{
+  "name": "zantolov/currency-agents",
+  "type": "project",
+  "require": {
+    "symfony/console": "^3.2"
+  },
+  "autoload": {
+    "classmap": [
+      "src"
+    ]
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^5.7"
+  }
+}

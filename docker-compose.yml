@@ -1,0 +1,28 @@
+version: '2'
+
+services:
+
+  gearman:
+   image: kendu/gearman
+
+  base_agent:
+    build: .
+    command: "php /var/app/bin/console.php gearman:test"
+    volumes:
+      - .:/var/app
+
+  analyze_agent:
+    extends:
+      service: base_agent
+    command: "php /var/app/bin/console.php agent:analyze --mode=2"
+
+  finance_agent:
+    extends:
+      service: base_agent
+    command: "php /var/app/bin/console.php agent:finance"
+
+  notification_agent:
+    extends:
+      service: base_agent
+    command: "php /var/app/bin/console.php agent:notification"
+
